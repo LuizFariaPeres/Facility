@@ -56,7 +56,7 @@ const Total = styled.div`
         gap:0.5em; 
         border-radius: 20px;
         width: 100%;
-        background-color: blue;
+        background-color: #004aad;
     }
 `
 

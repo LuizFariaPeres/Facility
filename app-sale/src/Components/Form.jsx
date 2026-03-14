@@ -25,7 +25,7 @@ const Conteiner = styled.div`
       flex-direction: column;
       gap: 0.9em;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       border: none;
       border-radius: 0 0 20px 20px;
       background: #BCD9FF;
@@ -45,6 +45,9 @@ const Inputs = styled.input`
       background-color: #004aad;
       margin: 0.5em 0;
       align-self: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
       &::placeholder{
         color: white;
         font-size: 16px;
