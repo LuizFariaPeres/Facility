@@ -1,7 +1,9 @@
 import Item from "./Item"
 import styled from "styled-components"
 import { Items } from "../Atoms/itens"
-import { useRecoilValue } from "recoil"
+import {ListCount} from '../Selectors/count'
+import { Sizes } from "../Selectors/size"
+import { useRecoilState, useRecoilValue } from "recoil"
 import Return from "./Return"
 
 export const sizes = {
@@ -15,8 +17,6 @@ export const devices = {
   tablet: `(max-width: ${sizes.tablet})`,
   desktop: `(max-width: ${sizes.desktop})`
 }
-
-
 const Conteiner = styled.div`
     @media ${devices.mobile}{
         display: flex;
@@ -46,7 +46,6 @@ const ItemsConteiner = styled.div`
         
     }
 `
-
 const Total = styled.div`
     @media ${devices.mobile}{
         display: flex;
@@ -63,18 +62,24 @@ const Total = styled.div`
 
 export default function Cart(){
 
-    const saleItens = useRecoilValue(Items)
+    const [saleItens, setSaleItens] = useRecoilState(Items)
+    const total = useRecoilValue(ListCount)
+    const size = useRecoilValue(Sizes)
+    
+    const remove = (indexRemove) => {
+        setSaleItens(prev => prev.filter((_, index) => index !== indexRemove))
+    }
 
     return(
         <Conteiner>
             <ItemsConteiner>     
                 {saleItens.map((item, index) =>(
-                    <Item key={index} title={item.title} price={item.price} kg={item.kg}/>
+                    <Item key={index} title={item.title} price={item.price} kg={item.kg} onDelete={()=> remove(index)}/>
                 ))}
             </ItemsConteiner>
                 <Total>
-                    <h1>Total: R$100,00</h1>
-                    <p>Quantidade: 100 un.</p>
+                    <h1>Total: {total != undefined?total.toFixed(2):total}</h1>
+                    <p>Quantidade: {size} un.</p>
                 </Total>
             <Return/>
         </Conteiner>

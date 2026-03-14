@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Menu from "./Menu"
 import { useRecoilState, useRecoilValue } from "recoil"
 import {Items} from '../Atoms/itens'
+import {ListCount} from '../Selectors/count'
+import { Sizes } from "../Selectors/size"
 import { useEffect, useState } from "react"
 
 export const sizes = {
@@ -87,7 +89,9 @@ export default function Form(){
   const itemKg = useInput()
 
   const [hour, setHour] = useState(new Date().toLocaleTimeString());
-  const [day, setDay] = useState(new Date().toLocaleDateString())
+  const [day, setDay] = useState(new Date().toLocaleDateString());
+  const total = useRecoilValue(ListCount)
+  const size = useRecoilValue(Sizes)
 
   useEffect(()=>{
       const timer = setInterval(()=>{
@@ -115,6 +119,7 @@ export default function Form(){
     
   }
   
+  
 
 
   return(
@@ -129,8 +134,8 @@ export default function Form(){
         </Based>
 
         <Totalit>
-            <h1>Total: R$100,00</h1>
-            <p>Quantidade: 100 un.</p>
+            <h1>Total: {total != undefined ? total.toFixed(2): total}</h1>
+            <p>Quantidade: {size} un.</p>
         </Totalit>
         <Menu/>
     </Conteiner>
