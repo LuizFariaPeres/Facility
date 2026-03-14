@@ -130,7 +130,7 @@ export default function Form(){
         <h1>Olá, User</h1>
         <h2>{hour} {day}</h2>
         <Based onSubmit={handleSubmit}>
-            <Inputs type="text" value={itemName.valor} onChange={itemName.onChange} placeholder='Nome'/>
+            <Inputs type="text" value={itemName.valor} onChange={itemName.onChange} placeholder='Item'/>
             <Inputs type="number" value={itemPrice.valor} onChange={itemPrice.onChange} placeholder='Preço'/>
             <Inputs type="number" value={itemKg.valor} onChange={itemKg.onChange} placeholder='Volume'/>
             <Btn>Adicionar</Btn>  
