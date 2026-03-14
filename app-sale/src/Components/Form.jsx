@@ -137,7 +137,7 @@ export default function Form(){
         </Based>
 
         <Totalit>
-            <h1>Total: {total != undefined ? total.toFixed(2): total}</h1>
+            <h1>Total: {total != undefined? total.toFixed(2): total}</h1>
             <p>Quantidade: {size} un.</p>
         </Totalit>
         <Menu/>

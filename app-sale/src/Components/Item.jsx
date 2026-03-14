@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
+
 import { FaRegTrashAlt } from "react-icons/fa";
 
 export const sizes = {
@@ -13,6 +14,16 @@ export const devices = {
   desktop: `(max-width: ${sizes.desktop})`
 }
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Conteiner = styled.div`
     @media ${devices.mobile} {
@@ -27,6 +38,7 @@ const Conteiner = styled.div`
         border:2px solid blue; 
         border-radius:20px;
         padding: 0.9em;
+        animation: ${fadeIn} 0.5s ease-in-out;
     }
 `
 const Conteiner2 = styled.div`
