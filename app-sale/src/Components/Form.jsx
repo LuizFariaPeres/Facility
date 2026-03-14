@@ -25,7 +25,7 @@ const Conteiner = styled.div`
       flex-direction: column;
       gap: 0.9em;
       width: 100%;
-      height: 100dvh;
+      height: 100%;
       border: none;
       border-radius: 0 0 20px 20px;
       background: #BCD9FF;
