@@ -18,14 +18,3 @@ export const ListCount = selector({
 
     }
 })
-
-export const ListCountTotal = selector({
-    key:`Tetototality/${Math.random()}`,
-    get: ({get}) =>{
-        let finalTotal = get(Teto);
-        let finalCount = get(ListCount)
-    
-        return finalTotal - finalCount
-
-    }
-})

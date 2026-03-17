@@ -82,7 +82,7 @@ const Totalit = styled.div`
   font-weight:bold;
   gap: 0.9em;
   align-self: center;
-  margin: 4em 0 0 0;
+  margin: 0.5em 0 0 0;
 `
 export default function Form(){
 
@@ -147,7 +147,6 @@ export default function Form(){
             <h1>Total: {total != undefined? total.toFixed(2): total}</h1>
             <h2>Teto de Gastos: {tetoTotal}</h2>
             <p>Quantidade: {size} un.</p>
-
         </Totalit>
         <Menu/>
     </Conteiner>

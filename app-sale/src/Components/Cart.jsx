@@ -82,7 +82,7 @@ export default function Cart(){
             </ItemsConteiner>
                 <Total>
                     <h1>Total: {total != undefined?total.toFixed(2):total}</h1>
-                    <h2>Teto: {teto.tetoFinal}</h2>
+                    <h2>Teto: {teto}</h2>
                     <p>Quantidade: {size} un.</p>
                 </Total>
             <Return/>
