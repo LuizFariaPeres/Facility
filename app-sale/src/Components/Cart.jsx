@@ -5,6 +5,7 @@ import {ListCount} from '../Selectors/count'
 import { Sizes } from "../Selectors/size"
 import { useRecoilState, useRecoilValue } from "recoil"
 import Return from "./Return"
+import { Teto } from "../Atoms/tetos"
 
 export const sizes = {
   mobile: '420px',
@@ -64,11 +65,13 @@ export default function Cart(){
 
     const [saleItens, setSaleItens] = useRecoilState(Items)
     const total = useRecoilValue(ListCount)
+    const teto = useRecoilValue(Teto)
     const size = useRecoilValue(Sizes)
     
     const remove = (indexRemove) => {
         setSaleItens(prev => prev.filter((_, index) => index !== indexRemove))
     }
+    
 
     return(
         <Conteiner>
@@ -79,6 +82,7 @@ export default function Cart(){
             </ItemsConteiner>
                 <Total>
                     <h1>Total: {total != undefined?total.toFixed(2):total}</h1>
+                    <h2>Teto: {teto.tetoFinal}</h2>
                     <p>Quantidade: {size} un.</p>
                 </Total>
             <Return/>

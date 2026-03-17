@@ -83,7 +83,7 @@ const Btn = styled.button`
     }
 `
 
-export default function Item({title, price, kg, onDelete}){
+export default function Item({title, price, kg, onDelete, onUpdate}){
 
 
     const count = price * kg
@@ -99,7 +99,6 @@ export default function Item({title, price, kg, onDelete}){
         
         <Conteiner>
             <h2>{title}</h2>
-    
             <Text>
                 <p>{countFomated}</p>
                 <p>Vol:{kg}</p>

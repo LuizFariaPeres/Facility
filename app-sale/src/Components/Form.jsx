@@ -6,6 +6,7 @@ import {Items} from '../Atoms/itens'
 import {ListCount} from '../Selectors/count'
 import { Sizes } from "../Selectors/size"
 import { useEffect, useState } from "react"
+import { Teto } from "../Atoms/tetos"
 
 export const sizes = {
   mobile: '420px',
@@ -90,11 +91,13 @@ export default function Form(){
   const itemName = useInput()
   const itemPrice = useInput()
   const itemKg = useInput()
+  const teto = useInput()
 
   const [hour, setHour] = useState(new Date().toLocaleTimeString());
   const [day, setDay] = useState(new Date().toLocaleDateString());
   const total = useRecoilValue(ListCount)
   const size = useRecoilValue(Sizes)
+  const tetoTotal = useRecoilValue(Teto);
 
   useEffect(()=>{
       const timer = setInterval(()=>{
@@ -104,6 +107,7 @@ export default function Form(){
   },[])
 
   const [list, setList] = useRecoilState(Items)
+  const [subTeto, setSubTeto] = useRecoilState(Teto)
 
 
   const handleSubmit = (e)=>{
@@ -116,9 +120,11 @@ export default function Form(){
     const newTask = {title: itemName.valor, price: itemPrice.valor, kg: itemKg.valor}
 
     setList([...list, newTask])
+    setSubTeto(teto.valor)
     itemName.onClear()
     itemPrice.onClear()
     itemKg.onClear()
+    teto.onClear()
     
   }
   
@@ -130,6 +136,7 @@ export default function Form(){
         <h1>Olá, User</h1>
         <h2>{hour} {day}</h2>
         <Based onSubmit={handleSubmit}>
+            <Inputs type="number" value={teto.valor} onChange={teto.onChange} placeholder="Teto de gastos"/>
             <Inputs type="text" value={itemName.valor} onChange={itemName.onChange} placeholder='Nome'/>
             <Inputs type="number" value={itemPrice.valor} onChange={itemPrice.onChange} placeholder='Preço'/>
             <Inputs type="number" value={itemKg.valor} onChange={itemKg.onChange} placeholder='Volume'/>
@@ -138,7 +145,9 @@ export default function Form(){
 
         <Totalit>
             <h1>Total: {total != undefined? total.toFixed(2): total}</h1>
+            <h2>Teto de Gastos: {tetoTotal}</h2>
             <p>Quantidade: {size} un.</p>
+
         </Totalit>
         <Menu/>
     </Conteiner>
