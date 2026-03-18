@@ -7,11 +7,13 @@
 body{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     width: 100%;
 } 
 #root{
     width: 100%;
     min-height: 100vh;
+    position: fixed;
+    overflow: hidden;
     background-color: #efe6df; 
 }

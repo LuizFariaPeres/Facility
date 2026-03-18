@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import {Link} from 'react-router-dom'
-import { IoBagOutline } from "react-icons/io5";
+import { MdOutlineShoppingCart } from "react-icons/md";
 export const sizes = {
   mobile: '420px',
   tablet: '768px',
@@ -28,10 +28,6 @@ const Conteiner = styled(Link)`
         padding: 0.9em;
         margin-top: 0.5em;
         transition: 0.5s ease-in-out;
-        &:hover{
-            background-color: #023828;
-            transform: scale(1.2);
-        }
     }
 `
 
@@ -39,7 +35,7 @@ export default function Menu(){
 
     return(
         <Conteiner to='/Components/Cart'>
-            <IoBagOutline size={46} color='white'/>
+            <MdOutlineShoppingCart size={46} color='white'/>
         </Conteiner>
     )
 }

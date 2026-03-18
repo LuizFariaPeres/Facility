@@ -76,10 +76,6 @@ const Btn = styled.button`
         border: none;
         padding: 0.9em;
         transition: 0.5s ease-in-out;
-        &:active{
-            background-color: #023828;
-            transform: scale(1.2);
-        }
     }
 `
 
