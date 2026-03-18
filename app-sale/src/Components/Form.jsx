@@ -33,7 +33,7 @@ const Conteiner = styled.div`
       background: #598b68;
       background: radial-gradient(circle, #598b68 10%, #dcf0bb 100%);
       padding: 1em;
-      color: black;
+      color: #012e21;
     }
 `
 const Inputs = styled.input`

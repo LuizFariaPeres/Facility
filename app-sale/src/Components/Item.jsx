@@ -28,33 +28,30 @@ const fadeIn = keyframes`
 const Conteiner = styled.div`
     @media ${devices.mobile} {
         display: flex;
-        flex-direction: column;
         width: 100%;
-        gap: 1em;
         text-align: center;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         background-color: white;
         border:2px solid #024c36; 
         border-radius:20px;
-        padding: 0.9em;
+        padding: 0.5em;
         animation: ${fadeIn} 0.5s ease-in-out;
     }
 `
-const Conteiner2 = styled.div`
-    @media ${devices.mobile} {
-        display: flex;
-        width: 100%;
-        gap: 1.5em;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        border-radius:20px;
-        padding: 0.9em;
-    }
-`
 const Text = styled.div`
+ @media ${devices.mobile} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    color: #024c36;
+    text-align: center;
+ }
+ 
+`
+const Price = styled.div`
  @media ${devices.mobile} {
     display: flex;
     justify-content: center;
@@ -69,12 +66,9 @@ const Btn = styled.button`
         display: flex;
         align-items:center;
         justify-content: center;
-        background-color: #024c36;
-        align-self: center;
         width: 5em;
-        border-radius: 20px;
         border: none;
-        padding: 0.9em;
+        background-color: transparent;
         transition: 0.5s ease-in-out;
     }
 `
@@ -94,12 +88,14 @@ export default function Item({title, price, kg, onDelete, onUpdate}){
     return(
         
         <Conteiner>
-            <h2>{title}</h2>
             <Text>
-                <p>{countFomated}</p>
-                <p>Vol:{kg}</p>
+                <h2>{title}</h2>
+                <Price>
+                    <p>{countFomated}</p>
+                    <p>Vol:{kg}</p>
+                </Price>
             </Text>
-            <Btn onClick={onDelete}><FaRegTrashAlt size={32} color="white" /></Btn>
+            <Btn onClick={onDelete}><FaRegTrashAlt size={42} color="#024c36" /></Btn>
         </Conteiner>
     )
 }
