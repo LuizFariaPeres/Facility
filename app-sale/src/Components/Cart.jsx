@@ -27,8 +27,8 @@ const Conteiner = styled.div`
         gap: 0.9em;
         width: 100%;
         height: 100dvh;
-        background: #BCD9FF;
-        background: radial-gradient(circle, rgba(188, 217, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+       background: #598b68;
+      background: radial-gradient(circle, #598b68 10%, #dcf0bb 100%);
     }
 `
 const ItemsConteiner = styled.div`
@@ -42,7 +42,7 @@ const ItemsConteiner = styled.div`
         gap: 0.9em;
         width: 100%;
         height: 90dvh;
-        border: 2px solid #004aad;
+        border: 2px solid transparent;
         border-radius: 20px;
         
     }
@@ -57,7 +57,7 @@ const Total = styled.div`
         gap:0.5em; 
         border-radius: 20px;
         width: 100%;
-        background-color: #004aad;
+        background-color: #024c36;
     }
 `
 

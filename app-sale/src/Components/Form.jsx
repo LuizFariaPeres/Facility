@@ -7,6 +7,7 @@ import {ListCount} from '../Selectors/count'
 import { Sizes } from "../Selectors/size"
 import { useEffect, useState } from "react"
 import { Teto } from "../Atoms/tetos"
+import { Name } from "../Atoms/name"
 
 export const sizes = {
   mobile: '420px',
@@ -29,8 +30,8 @@ const Conteiner = styled.div`
       height: 100vh;
       border: none;
       border-radius: 0 0 20px 20px;
-      background: #BCD9FF;
-      background: radial-gradient(circle, rgba(188, 217, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
+      background: #598b68;
+      background: radial-gradient(circle, #598b68 10%, #dcf0bb 100%);
       padding: 1em;
       color: black;
     }
@@ -43,7 +44,7 @@ const Inputs = styled.input`
       padding: 1.5em;
       border: none;
       border-radius: 20px;
-      background-color: #004aad;
+      background-color: #024c36;
       margin: 0.5em 0;
       align-self: center;
       font-size: 16px;
@@ -69,7 +70,7 @@ const Btn = styled.button`
     padding: 0.5em;
     border: none;
     border-radius: 20px;
-    background-color: #004aad;
+    background-color: #024c36;
     color: white;
     font-size: 25px;
     align-self: center;
@@ -91,13 +92,13 @@ export default function Form(){
   const itemName = useInput()
   const itemPrice = useInput()
   const itemKg = useInput()
-  const teto = useInput()
 
   const [hour, setHour] = useState(new Date().toLocaleTimeString());
   const [day, setDay] = useState(new Date().toLocaleDateString());
   const total = useRecoilValue(ListCount)
   const size = useRecoilValue(Sizes)
   const tetoTotal = useRecoilValue(Teto);
+  const nameUser = useRecoilValue(Name);
 
   useEffect(()=>{
       const timer = setInterval(()=>{
@@ -107,7 +108,6 @@ export default function Form(){
   },[])
 
   const [list, setList] = useRecoilState(Items)
-  const [subTeto, setSubTeto] = useRecoilState(Teto)
 
 
   const handleSubmit = (e)=>{
@@ -120,11 +120,9 @@ export default function Form(){
     const newTask = {title: itemName.valor, price: itemPrice.valor, kg: itemKg.valor}
 
     setList([...list, newTask])
-    setSubTeto(teto.valor)
     itemName.onClear()
     itemPrice.onClear()
     itemKg.onClear()
-    teto.onClear()
     
   }
   
@@ -133,13 +131,12 @@ export default function Form(){
 
   return(
     <Conteiner>
-        <h1>Olá, User</h1>
+        <h1>Olá, {nameUser}</h1>
         <h2>{hour} {day}</h2>
         <Based onSubmit={handleSubmit}>
-            <Inputs type="number" value={teto.valor} onChange={teto.onChange} placeholder="Teto de gastos"/>
-            <Inputs type="text" value={itemName.valor} onChange={itemName.onChange} placeholder='Nome'/>
-            <Inputs type="number" value={itemPrice.valor} onChange={itemPrice.onChange} placeholder='Preço'/>
-            <Inputs type="number" value={itemKg.valor} onChange={itemKg.onChange} placeholder='Volume'/>
+            <Inputs type="text" value={itemName.valor} onChange={itemName.onChange} placeholder='Digite o Item'/>
+            <Inputs type="number" value={itemPrice.valor} onChange={itemPrice.onChange} placeholder='Digite o Preço'/>
+            <Inputs type="number" value={itemKg.valor} onChange={itemKg.onChange} placeholder='Digite a Unidade ou Peso'/>
             <Btn>Adicionar</Btn>  
         </Based>
 

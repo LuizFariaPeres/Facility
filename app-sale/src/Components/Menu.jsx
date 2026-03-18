@@ -21,7 +21,7 @@ const Conteiner = styled(Link)`
         display: flex;
         align-items:center;
         justify-content: center;
-        background-color: #004aad;
+        background-color: #024c36;
         align-self: center;
         width: 5em;
         border-radius: 20px;
@@ -29,7 +29,7 @@ const Conteiner = styled(Link)`
         margin-top: 0.5em;
         transition: 0.5s ease-in-out;
         &:hover{
-            background-color: blue;
+            background-color: #023828;
             transform: scale(1.2);
         }
     }

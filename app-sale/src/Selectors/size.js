@@ -8,7 +8,6 @@ export const Sizes = selector({
         const list = get(Items)
         let RefatorList = list.length;
 
-
         return RefatorList
     }
     

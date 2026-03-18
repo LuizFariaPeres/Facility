@@ -35,7 +35,7 @@ const Conteiner = styled.div`
         justify-content: center;
         align-items: center;
         background-color: white;
-        border:2px solid blue; 
+        border:2px solid #024c36; 
         border-radius:20px;
         padding: 0.9em;
         animation: ${fadeIn} 0.5s ease-in-out;
@@ -69,15 +69,15 @@ const Btn = styled.button`
         display: flex;
         align-items:center;
         justify-content: center;
-        background-color: #004aad;
+        background-color: #024c36;
         align-self: center;
         width: 5em;
         border-radius: 20px;
         border: none;
         padding: 0.9em;
         transition: 0.5s ease-in-out;
-        &:hover{
-            background-color: blue;
+        &:active{
+            background-color: #023828;
             transform: scale(1.2);
         }
     }

@@ -20,23 +20,19 @@ const Conteiner = styled(Link)`
         display: flex;
         align-items:center;
         justify-content: center;
-        background-color: #004aad;
+        background-color: #024c36;
         align-self: center;
         width: 5em;
         border-radius: 20px;
         padding: 0.9em;
         transition: 0.5s ease-in-out;
-        &:hover{
-            background-color: blue;
-            transform: scale(1.2);
-        }
     }
 `
 
 export default function Return(){
 
     return(
-        <Conteiner to='/'>
+        <Conteiner to='/Components/Form'>
             <IoMdHome size={46} color='white'/>
         </Conteiner>
     )
